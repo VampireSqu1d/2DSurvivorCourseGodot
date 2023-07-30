@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://7x85t0tu3rd"]
+
+[ext_resource type="Texture2D" uid="uid://cmjqkgndvnc6" path="res://scenes/game_object/experience_vail/expirience_vail.png" id="1_501hp"]
+[ext_resource type="Script" path="res://scenes/game_object/experience_vail/expirience_vail.gd" id="1_waofv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eofxx"]
+radius = 8.0
+height = 24.0
+
+[node name="ExpirienceVail" type="Node2D"]
+script = ExtResource("1_waofv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_501hp")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_eofxx")
