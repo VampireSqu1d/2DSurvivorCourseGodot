@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game_object/player/CharacterBody2D.gd" id="1_362qj"]
 [ext_resource type="Texture2D" uid="uid://roqx57603hgr" path="res://scenes/game_object/player/player.png" id="2_6d8ro"]
+[ext_resource type="PackedScene" uid="uid://bai2ahnm8j65e" path="res://scenes/component/velocity_component.tscn" id="2_lfkpq"]
 [ext_resource type="PackedScene" uid="uid://prxxajdbhqj7" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_qq74d"]
 [ext_resource type="PackedScene" uid="uid://ch4vlb6fdlthb" path="res://scenes/component/health_component.tscn" id="2_yn8ge"]
 
@@ -91,9 +92,6 @@ _data = {
 "walk": SubResource("Animation_jy3vg")
 }
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yugjt"]
-bg_color = Color(0.247059, 0.14902, 0.192157, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee0q4"]
 bg_color = Color(0.262745, 0.882353, 0.701961, 1)
 border_width_left = 2
@@ -117,6 +115,10 @@ collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_362qj")
 
+[node name="VelocityComponent" parent="." instance=ExtResource("2_lfkpq")]
+max_speed = 90
+acceleration = 25.0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_esjys")
@@ -139,7 +141,6 @@ offset_top = -23.0
 offset_right = 16.0
 offset_bottom = -17.0
 pivot_offset = Vector2(16, 3)
-theme_override_styles/background = SubResource("StyleBoxFlat_yugjt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ee0q4")
 max_value = 1.0
 value = 0.5
