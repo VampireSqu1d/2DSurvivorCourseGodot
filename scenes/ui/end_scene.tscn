@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://my3ipyewxboc"]
+[gd_scene load_steps=9 format=3 uid="uid://my3ipyewxboc"]
 
 [ext_resource type="Script" path="res://scenes/ui/end_scene.gd" id="1_f01qo"]
+[ext_resource type="AudioStream" uid="uid://dyve4wqdcr7d1" path="res://assets/audio/jingles_victory.ogg" id="2_37f1j"]
+[ext_resource type="PackedScene" uid="uid://bnwv63iio7euf" path="res://scenes/ui/sound_button.tscn" id="2_kqfn3"]
+[ext_resource type="AudioStream" uid="uid://xfpccieqlsvv" path="res://assets/audio/jingles_defeat.ogg" id="3_7fjuy"]
 
 [sub_resource type="Animation" id="Animation_f2u1v"]
 length = 0.001
@@ -68,6 +71,16 @@ libraries = {
 "": SubResource("AnimationLibrary_32yii")
 }
 
+[node name="VictoryStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_37f1j")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="DefeatStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7fjuy")
+volume_db = -5.0
+bus = &"sfx"
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -128,13 +141,13 @@ clip_text = true
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="RestartButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_kqfn3")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Restart
 "
 
-[node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_kqfn3")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Quit

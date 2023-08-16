@@ -4,6 +4,10 @@ extends CharacterBody2D
 @onready var velocity_component = $VelocityComponent
 
 
+func _ready():
+	$HurtBoxComponent.hit.connect(on_hit)
+
+
 func _process(delta):
 	velocity_component.accelerate_to_player()
 	velocity_component.move(self)
@@ -21,4 +25,6 @@ func get_direction_to_player():
 	return Vector2.ZERO
 
 
+func on_hit():
+	$HitRandomAudioPlayer2DComponent.play_random()
 

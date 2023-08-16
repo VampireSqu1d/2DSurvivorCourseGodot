@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://7x85t0tu3rd"]
+[gd_scene load_steps=10 format=3 uid="uid://7x85t0tu3rd"]
 
 [ext_resource type="Texture2D" uid="uid://cmjqkgndvnc6" path="res://scenes/game_object/experience_vail/expirience_vail.png" id="1_501hp"]
 [ext_resource type="Script" path="res://scenes/game_object/experience_vail/expirience_vail.gd" id="1_waofv"]
+[ext_resource type="PackedScene" uid="uid://bv6aq5s1r6vwi" path="res://scenes/component/random_stream_player_2d_component.tscn" id="2_ycpd5"]
+[ext_resource type="AudioStream" uid="uid://c7t7l4wkkp0y4" path="res://assets/audio/impactGeneric_light_000.ogg" id="3_hgnxh"]
+[ext_resource type="AudioStream" uid="uid://b4mvvm0nh2l2" path="res://assets/audio/impactGeneric_light_001.ogg" id="4_aomyn"]
+[ext_resource type="AudioStream" uid="uid://b81af3fy4cfnk" path="res://assets/audio/impactGeneric_light_002.ogg" id="5_uhukf"]
+[ext_resource type="AudioStream" uid="uid://cap3iqnf5q08a" path="res://assets/audio/impactGeneric_light_003.ogg" id="6_tgnyh"]
+[ext_resource type="AudioStream" uid="uid://bg3ojskthmmc2" path="res://assets/audio/impactGeneric_light_004.ogg" id="7_yqemk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eofxx"]
 radius = 8.0
@@ -9,6 +15,9 @@ height = 24.0
 
 [node name="ExpirienceVail" type="Node2D"]
 script = ExtResource("1_waofv")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("2_ycpd5")]
+streams = Array[AudioStream]([ExtResource("3_hgnxh"), ExtResource("4_aomyn"), ExtResource("5_uhukf"), ExtResource("6_tgnyh"), ExtResource("7_yqemk")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_501hp")
