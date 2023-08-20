@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://my3ipyewxboc"]
+[gd_scene load_steps=10 format=3 uid="uid://my3ipyewxboc"]
 
 [ext_resource type="Script" path="res://scenes/ui/end_scene.gd" id="1_f01qo"]
 [ext_resource type="AudioStream" uid="uid://dyve4wqdcr7d1" path="res://assets/audio/jingles_victory.ogg" id="2_37f1j"]
 [ext_resource type="PackedScene" uid="uid://bnwv63iio7euf" path="res://scenes/ui/sound_button.tscn" id="2_kqfn3"]
+[ext_resource type="PackedScene" uid="uid://cmtt6sn51l6de" path="res://scenes/ui/vignette.tscn" id="2_rw2mk"]
 [ext_resource type="AudioStream" uid="uid://xfpccieqlsvv" path="res://assets/audio/jingles_defeat.ogg" id="3_7fjuy"]
 
 [sub_resource type="Animation" id="Animation_f2u1v"]
@@ -65,6 +66,9 @@ _data = {
 process_mode = 3
 script = ExtResource("1_f01qo")
 
+[node name="Vignette" parent="." instance=ExtResource("2_rw2mk")]
+layer = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "in"
 libraries = {
@@ -117,9 +121,7 @@ theme_override_constants/separation = 16
 [node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_constants/outline_size = 8
+theme_type_variation = &"BlueOutlineLabel"
 theme_override_font_sizes/font_size = 32
 text = "Victory"
 horizontal_alignment = 1
@@ -128,11 +130,7 @@ vertical_alignment = 1
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_colors/font_outline_color = Color(0.14902, 0.168627, 0.266667, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 8
+theme_type_variation = &"BlueOutlineLabel"
 text = "You won!!"
 horizontal_alignment = 1
 vertical_alignment = 1
