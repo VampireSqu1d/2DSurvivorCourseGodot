@@ -43,6 +43,7 @@ func on_window_button_pressed():
 	if mode != DisplayServer.WINDOW_MODE_FULLSCREEN:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	else:
+		DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	
 	update_display()
@@ -53,4 +54,6 @@ func on_audio_slider_changed(value: float, bus_name: String):
 
 
 func on_back_pressed():
+	ScreenTransition.transition()
+	await ScreenTransition.transition_halfway
 	back_pressed.emit()
